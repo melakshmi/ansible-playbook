@@ -3,8 +3,10 @@ pipeline {
     stages {
         stage('Check ansible version') {
             steps {
-               sh 'ansible --version'
-                
+                script {
+                    def ansibleVersion = sh(script: 'ansible --version', returnStdout: true).trim()
+                    echo "Ansible version: ${ansibleVersion}"
+                }
             }
         }
     }
