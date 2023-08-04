@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Check ansible version') {
             steps {
-               sh 'ansible --version
+               sh 'ansible --version'
                 
             }
         }
