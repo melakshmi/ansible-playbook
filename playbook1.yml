@@ -1,10 +1,13 @@
 pipeline {
     agent any
     stages {
-        stage('Check Ansible Version') {
+        stage('Install Ansible') {
             steps {
-                sh 'ansible --version'
+                sh 'apt update && apt install -y ansible' // For Debian/Ubuntu-based systems
+                // or
+                // sh 'yum install -y ansible' // For RHEL/CentOS-based systems
             }
-        }
-    }
+        }
+        // Your other stages here
+    }
 }
